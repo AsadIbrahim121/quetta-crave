@@ -1,19 +1,11 @@
 # 🍔 QUETTA CRAVE — Gourmet Fast Food & Grill
 
 [![Live Website](https://img.shields.io/badge/Website-LIVE%2024%2F7-brightgreen?style=for-the-badge&logo=github)](https://asadibrahim121.github.io/quetta-crave/)
-[![Project Report PDF](https://img.shields.io/badge/Project%20Report-3--Page%20PDF-red?style=for-the-badge&logo=adobeacrobatreader)](https://github.com/AsadIbrahim121/quetta-crave/blob/main/Quetta_Crave_Project_Report.pdf)
 [![GitHub Pages](https://img.shields.io/badge/Hosted%20On-GitHub%20Pages-blue?style=for-the-badge&logo=githubpages)](https://asadibrahim121.github.io/quetta-crave/)
 [![Halal](https://img.shields.io/badge/100%25-Halal%20Prime-orange?style=for-the-badge)](https://asadibrahim121.github.io/quetta-crave/)
 [![Free Delivery](https://img.shields.io/badge/Delivery-FREE%20Rs.%201000%2B-yellow?style=for-the-badge)](https://asadibrahim121.github.io/quetta-crave/)
 
 > **Quetta Crave** is a modern, high-performance, full-featured web application and relational database system for Quetta's premier fast food restaurant located at **Rahim Colony, Circular Road near GOGO Pizza, Quetta, Balochistan, Pakistan**.
-
----
-
-## 📄 Project Engineering Report (3-Page PDF)
-
-The official 3-page engineering report detailing the **Business Problem**, **Delivered Solution**, and **AI Tools Used** is available in the repository:
-📥 **[Download / View Project Report (PDF)](https://github.com/AsadIbrahim121/quetta-crave/blob/main/Quetta_Crave_Project_Report.pdf)**
 
 ---
 

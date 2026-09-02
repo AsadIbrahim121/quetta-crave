@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QUETTA CRAVE | Fast Food Restaurant (Near GOGO Pizza, Rahim Colony)</title>
+  <meta name="description" content="Quetta Crave - Quetta's #1 fast food restaurant in Rahim Colony, Circular Road near GOGO Pizza. Gourmet Smash Burgers, Cheesy Pizzas, Crispy Broast, Shawarmas & Shakes. Free delivery on orders Rs. 1000+!">
+  
+  <!-- Google Fonts: Outfit & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ========================================================
+       DESIGN SYSTEM & CSS VARIABLES
+       ======================================================== */
+    :root {
+      --primary: #E63946;
+      --primary-hover: #D62828;
+      --primary-glow: rgba(230, 57, 70, 0.4);
+      --secondary: #FFB703;
+      --secondary-hover: #FB8500;
+      --secondary-glow: rgba(255, 183, 3, 0.4);
+      --accent-neon: #FF0055;
+      --dark-bg: #0A0A0E;
+      --dark-surface: #121218;
+      --card-bg: #181824;
+      --card-hover: #212130;
+      --card-border: rgba(255, 255, 255, 0.09);
+      --text-main: #FFFFFF;
+      --text-muted: #A5A5BA;
+      --text-dim: #707085;
+      --accent-green: #06D6A0;
+      --danger: #EF476F;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 6px 16px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 12px 36px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 25px rgba(230, 57, 70, 0.35);
+      --transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Poppins', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); background-color: var(--dark-bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    button, input, select, textarea { font-family: inherit; border: none; outline: none; }
+    .container { width: 100%; max-width: 1260px; margin: 0 auto; padding: 0 22px; }
+
+    /* ========================================================
+       FLOATING & POP-UP ANIMATIONS (KEYFRAMES)
+       ======================================================== */
+    @keyframes floatBrand {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(-1deg); }
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 4px 12px var(--primary-glow)); }
+      50% { transform: translateY(-9px) scale(1.06); filter: drop-shadow(0 10px 20px var(--secondary-glow)); }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(4deg); }
+    }
+
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(10px) rotate(-3deg); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(230, 57, 70, 0.4), 0 0 30px rgba(255, 183, 3, 0.2); }
+      50% { box-shadow: 0 0 25px rgba(230, 57, 70, 0.7), 0 0 45px rgba(255, 183, 3, 0.4); }
+    }
+
+    @keyframes popBounce {
+      0% { transform: scale(0.92); opacity: 0; }
+      70% { transform: scale(1.05); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes shimmerTitle {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes floatCard_1 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes floatCard_2 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes floatCard_3 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* Ambient Floating Fast Food Icons */
+    .floating-sticker {
+      position: absolute;
+      font-size: 2.2rem;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+    }
+    .sticker-1 { top: 12%; left: 3%; animation: floatSlow 5s ease-in-out infinite; }
+    .sticker-2 { top: 75%; left: 6%; animation: floatReverse 6s ease-in-out infinite; }
+    .sticker-3 { top: 20%; right: 4%; animation: floatReverse 5.5s ease-in-out infinite; }
+    .sticker-4 { top: 82%; right: 5%; animation: floatSlow 6.5s ease-in-out infinite; }
+
+    /* ========================================================
+       TOP ANNOUNCEMENT BAR
+       ======================================================== */
+    .top-bar {
+      background: linear-gradient(90deg, #A70000 0%, #E63946 45%, #FFB703 100%);
+      color: #FFF;
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 8px 0;
+      position: relative;
+      z-index: 100;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.4);
+    }
+    .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .top-bar-text { display: flex; align-items: center; gap: 8px; }
+    .top-bar-badge {
+      background: #FFF;
+      color: #D62828;
+      padding: 2px 9px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      animation: pulseGlow 2.5s infinite;
+    }
+    .top-bar-contact { display: flex; align-items: center; gap: 16px; font-size: 0.82rem; }
+
+    /* ========================================================
+       MAIN HEADER & 3D POP-UP BRANDING
+       ======================================================== */
+    .main-header {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: rgba(10, 10, 14, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--card-border);
+      transition: var(--transition);
+    }
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+
+    /* POP-UP STYLE FOR WEBSITE NAME */
+    .brand-container {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .brand-logo-badge {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #E63946 0%, #FFB703 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #FFF;
+      animation: floatBadge 3.5s ease-in-out infinite;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .brand-text-block {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-title-popup {
+      font-family: var(--font-heading);
+      font-size: 1.95rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      line-height: 1;
+      background: linear-gradient(90deg, #FFFFFF 0%, #FFF3B0 40%, #FFB703 70%, #E63946 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmerTitle 6s linear infinite, floatBrand 4s ease-in-out infinite;
+      text-shadow: 0 4px 18px rgba(255, 183, 3, 0.35);
+      position: relative;
+    }
+    .brand-sub-badge {
+      font-size: 0.7rem;
+      color: var(--secondary);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand-sub-badge::after {
+      content: '★ Near GOGO Pizza';
+      font-size: 0.65rem;
+      background: rgba(255, 183, 3, 0.15);
+      padding: 1px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 183, 3, 0.3);
+    }
+
+    /* Pop-up Interactive Info Card on Brand Hover/Click */
+    .brand-popup-card {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      width: 290px;
+      background: #1B1B26;
+      border: 1px solid rgba(255, 183, 3, 0.4);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-md), 0 0 20px rgba(230, 57, 70, 0.3);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px) scale(0.95);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+    }
+    .brand-container:hover .brand-popup-card,
+    .brand-container:focus-within .brand-popup-card {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+    .brand-popup-card h5 {
+      font-family: var(--font-heading);
+      color: var(--secondary);
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand-popup-card p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Navigation Links */
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-link { font-weight: 500; font-size: 0.92rem; color: var(--text-muted); padding: 6px 0; position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--text-main); }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .cart-btn-trigger {
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .cart-btn-trigger:hover {
+      background: var(--card-hover);
+      border-color: var(--secondary);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 20px var(--secondary-glow);
+    }
+    .cart-badge-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px var(--primary-glow);
+      animation: popBounce 0.4s ease;
+    }
+    .admin-nav-btn {
+      background: rgba(255, 183, 3, 0.12);
+      border: 1px solid rgba(255, 183, 3, 0.35);
+      color: var(--secondary);
+      padding: 9px 18px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .admin-nav-btn:hover {
+      background: var(--secondary);
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--secondary-glow);
+    }
+
+    /* ========================================================
+       BUTTONS & CALL TO ACTIONS
+       ======================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, #D62828 100%);
+      color: #FFF;
+      box-shadow: 0 6px 20px var(--primary-glow);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 28px rgba(230, 57, 70, 0.6);
+    }
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-hover) 100%);
+      color: #000;
+      box-shadow: 0 6px 20px var(--secondary-glow);
+    }
+    .btn-secondary:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 28px rgba(251, 133, 0, 0.55);
+    }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background: var(--card-bg);
+      border-color: var(--secondary);
+      color: var(--secondary);
+      transform: translateY(-3px);
+    }
+    .btn-sm { padding: 8px 16px; font-size: 0.85rem; border-radius: var(--radius-sm); }
+    .btn-block { width: 100%; }
+
+    /* ========================================================
+       HERO SECTION WITH 3D POP-UP HIGHLIGHTS
+       ======================================================== */
+    .hero-section {
+      padding: 70px 0 85px;
+      position: relative;
+      background: radial-gradient(circle at 80% 30%, rgba(230, 57, 70, 0.2) 0%, transparent 60%),
+                  radial-gradient(circle at 15% 75%, rgba(255, 183, 3, 0.12) 0%, transparent 55%);
+      overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 50px; align-items: center; }
+    
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255, 183, 3, 0.14);
+      border: 1px solid rgba(255, 183, 3, 0.4);
+      color: var(--secondary);
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      animation: floatSlow 4.5s ease-in-out infinite;
+    }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.12;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    .hero-title .highlight-popup {
+      background: linear-gradient(90deg, #E63946 0%, #FFB703 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      filter: drop-shadow(0 4px 15px var(--primary-glow));
+    }
+    .hero-desc { color: var(--text-muted); font-size: 1.08rem; margin-bottom: 30px; max-width: 560px; line-height: 1.65; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 38px; }
+    
+    .hero-features { display: flex; gap: 28px; border-top: 1px solid var(--card-border); padding-top: 24px; }
+    .hero-feature-item { display: flex; align-items: center; gap: 12px; }
+    .hero-feature-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(230, 57, 70, 0.16);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+
+    .hero-image-box {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-main-img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md), 0 0 35px rgba(230, 57, 70, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      animation: floatSlow 5s ease-in-out infinite;
+      transition: var(--transition);
+    }
+    .hero-main-img:hover {
+      transform: scale(1.03) rotate(1deg);
+    }
+
+    /* Floating Hero Highlight Card */
+    .hero-float-card {
+      position: absolute;
+      bottom: -15px;
+      left: -20px;
+      background: rgba(24, 24, 36, 0.95);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 183, 3, 0.35);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-md), 0 0 20px var(--secondary-glow);
+      animation: floatReverse 4.2s ease-in-out infinite;
+    }
+    .hero-float-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--secondary);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    /* ========================================================
+       FREE DELIVERY PROMO BANNER
+       ======================================================== */
+    .promo-bar-section { padding: 10px 0 30px; }
+    .promo-banner {
+      background: linear-gradient(135deg, #1B1B26 0%, #291217 100%);
+      border: 1px solid rgba(230, 57, 70, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: var(--shadow-sm), 0 0 20px rgba(230, 57, 70, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary), var(--secondary));
+    }
+    .promo-left { display: flex; align-items: center; gap: 20px; }
+    .promo-icon-box {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      color: #FFF;
+      flex-shrink: 0;
+      animation: floatBadge 3.8s ease-in-out infinite;
+    }
+    .promo-title { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 800; color: #FFF; margin-bottom: 3px; }
+    .promo-title span { color: var(--secondary); }
+    .promo-sub { font-size: 0.88rem; color: var(--text-muted); }
+
+    /* ========================================================
+       SECTION HEADERS
+       ======================================================== */
+    .section-header { text-align: center; max-width: 720px; margin: 0 auto 45px; }
+    .section-tag {
+      display: inline-block;
+      color: var(--secondary);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .section-title { font-family: var(--font-heading); font-size: 2.35rem; font-weight: 800; line-height: 1.25; margin-bottom: 12px; }
+    .section-desc { color: var(--text-muted); font-size: 0.98rem; }
+
+    /* ========================================================
+       PRODUCTS CATALOG & FLOATING PRODUCT CARDS
+       ======================================================== */
+    .menu-section { padding: 50px 0 80px; position: relative; }
+    .category-tabs-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .category-tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .category-tab-btn:hover {
+      background: var(--card-hover);
+      color: #FFF;
+      border-color: var(--secondary);
+      transform: translateY(-2px);
+    }
+    .category-tab-btn.active {
+      background: linear-gradient(135deg, var(--primary) 0%, #D62828 100%);
+      color: #FFF;
+      border-color: var(--primary);
+      box-shadow: 0 4px 18px var(--primary-glow);
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    /* FLOATING PRODUCT CARD STYLING */
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+      animation-duration: 4.5s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+    /* Stagger floating cards rhythmically */
+    .product-card:nth-child(3n+1) { animation-name: floatCard_1; animation-delay: 0s; }
+    .product-card:nth-child(3n+2) { animation-name: floatCard_2; animation-delay: 0.8s; }
+    .product-card:nth-child(3n)   { animation-name: floatCard_3; animation-delay: 1.6s; }
+
+    .product-card:hover {
+      transform: translateY(-12px) scale(1.02) !important;
+      border-color: rgba(230, 57, 70, 0.6);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(230, 57, 70, 0.35);
+      z-index: 10;
+    }
+
+    .product-img-box {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: #101016;
+      cursor: pointer;
+    }
+    .product-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .product-card:hover .product-img-box img {
+      transform: scale(1.12) rotate(1.2deg);
+    }
+
+    /* Pop-up Badge Animation on Product Cards */
+    .product-badge-pop {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(135deg, var(--primary) 0%, #D62828 100%);
+      color: #FFF;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+      animation: pulseGlow 3s infinite;
+      z-index: 2;
+    }
+    .product-rating-pill {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(10, 10, 14, 0.88);
+      backdrop-filter: blur(8px);
+      color: var(--secondary);
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 2;
+    }
+
+    .product-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+    .product-category-name { font-size: 0.75rem; color: var(--secondary); font-weight: 700; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.5px; }
+    .product-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; color: #FFF; }
+    .product-desc { color: var(--text-muted); font-size: 0.83rem; line-height: 1.5; margin-bottom: 18px; flex-grow: 1; }
+    
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--card-border);
+      padding-top: 14px;
+      margin-top: auto;
+    }
+    .product-price { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 900; color: #FFF; }
+    .product-price span { font-size: 0.82rem; color: var(--secondary); margin-right: 3px; }
+
+    /* Pop-up Add to Cart Button */
+    .add-to-cart-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, #D62828 100%);
+      color: #FFF;
+      border-radius: var(--radius-md);
+      padding: 9px 16px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+    .add-to-cart-btn:hover {
+      background: linear-gradient(135deg, #FFB703 0%, #FB8500 100%);
+      color: #000;
+      transform: translateY(-3px) scale(1.08);
+      box-shadow: 0 8px 20px var(--secondary-glow);
+    }
+
+    /* ========================================================
+       5-STAR REVIEWS & SOCIAL PROOF
+       ======================================================== */
+    .reviews-section {
+      padding: 70px 0;
+      background: #111118;
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .reviews-summary-bar {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 22px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+    .reviews-rating-big { display: flex; align-items: center; gap: 16px; }
+    .rating-score { font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #FFF; line-height: 1; }
+    .rating-stars { color: var(--secondary); font-size: 1.15rem; margin-bottom: 3px; }
+    
+    .reviews-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px; }
+    .review-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+    .review-card:hover {
+      border-color: rgba(255, 183, 3, 0.5);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md), 0 0 20px rgba(255, 183, 3, 0.2);
+    }
+    .review-card-stars { color: var(--secondary); font-size: 1rem; margin-bottom: 12px; }
+    .review-comment { font-size: 0.9rem; color: #E5E7EB; line-height: 1.6; margin-bottom: 18px; font-style: italic; }
+    .review-author-box { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--card-border); padding-top: 14px; }
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #FFF;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    /* ========================================================
+       LOCATION & INTERACTIVE GOOGLE MAP
+       ======================================================== */
+    .location-section { padding: 70px 0; background: #0C0C10; }
+    .location-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; }
+    .location-info-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+    }
+    .location-detail-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+    .location-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(230, 57, 70, 0.16);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .map-frame-wrapper {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow-md);
+      height: 400px;
+    }
+    .map-frame-wrapper iframe { width: 100%; height: 100%; border: 0; }
+
+    /* ========================================================
+       PAKISTANI PAYMENT METHODS STYLING
+       ======================================================== */
+    .payment-methods-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .payment-option-card {
+      background: #12121A;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+    .payment-option-card:hover {
+      background: #1A1A26;
+      border-color: var(--secondary);
+    }
+    .payment-option-card.active {
+      background: rgba(230, 57, 70, 0.15);
+      border-color: var(--primary);
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+    .payment-option-card input[type="radio"] {
+      display: none;
+    }
+    .payment-option-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .payment-option-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #FFF;
+      line-height: 1.2;
+    }
+    .payment-option-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .payment-instruction-box {
+      background: #14141E;
+      border: 1px dashed rgba(255, 183, 3, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: 0.8rem;
+      color: #E2E8F0;
+      line-height: 1.45;
+    }
+
+    /* ========================================================
+       MODALS & DIALOGS
+       ======================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-content {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 520px;
+      padding: 30px;
+      box-shadow: var(--shadow-md), 0 0 30px rgba(0, 0, 0, 0.8);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: popBounce 0.35s ease;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .modal-close-btn:hover { background: var(--primary); transform: rotate(90deg); }
+    .form-group { margin-bottom: 16px; text-align: left; }
+    .form-label { display: block; font-size: 0.86rem; font-weight: 600; margin-bottom: 6px; color: #E2E8F0; }
+    .form-control {
+      width: 100%;
+      background: #101016;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 11px 15px;
+      color: #FFF;
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+    .form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
+    textarea.form-control { min-height: 85px; resize: vertical; }
+    .star-picker { display: flex; gap: 9px; font-size: 1.6rem; color: #4A4A5A; cursor: pointer; margin-bottom: 10px; }
+    .star-picker i.active { color: var(--secondary); text-shadow: 0 0 10px var(--secondary-glow); }
+
+    /* ========================================================
+       SHOPPING CART DRAWER
+       ======================================================== */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -440px;
+      width: 400px;
+      max-width: 100vw;
+      height: 100vh;
+      background: #14141E;
+      border-left: 1px solid var(--card-border);
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -12px 0 35px rgba(0, 0, 0, 0.7);
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cart-drawer.open { right: 0; }
+    .cart-drawer-header {
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cart-drawer-title { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 9px; }
+    
+    .delivery-progress-box { background: #0E0E14; padding: 14px 22px; border-bottom: 1px solid var(--card-border); }
+    .delivery-progress-text { font-size: 0.83rem; font-weight: 600; margin-bottom: 7px; display: flex; align-items: center; justify-content: space-between; }
+    .delivery-progress-text span.highlight { color: var(--secondary); }
+    .progress-track { width: 100%; height: 7px; background: #22222E; border-radius: 4px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--secondary) 0%, var(--accent-green) 100%); width: 0%; transition: width 0.4s ease; }
+    
+    .cart-items-list { flex-grow: 1; overflow-y: auto; padding: 18px 22px; display: flex; flex-direction: column; gap: 14px; }
+    .cart-item-row {
+      display: flex;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      align-items: center;
+    }
+    .cart-item-img { width: 58px; height: 58px; border-radius: var(--radius-sm); object-fit: cover; }
+    .cart-item-info { flex-grow: 1; font-size: 0.85rem; }
+    .cart-drawer-footer { padding: 20px 22px; border-top: 1px solid var(--card-border); background: #0E0E14; }
+    .cart-summary-line { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 8px; color: var(--text-muted); }
+    .cart-summary-line.total {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #FFF;
+      border-top: 1px solid var(--card-border);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+
+    /* ========================================================
+       ADMIN PORTAL STYLES (Clean Unprefilled Authentication)
+       ======================================================== */
+    .admin-login-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      color: #FFF;
+      margin: 0 auto 18px;
+      animation: floatBadge 3.5s infinite;
+    }
+    .admin-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+    .admin-menu-item:hover, .admin-menu-item.active { background: rgba(230, 57, 70, 0.2); color: #FFF; }
+    .admin-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; }
+    .admin-table th, .admin-table td { padding: 12px 14px; border-bottom: 1px solid var(--card-border); }
+    .admin-table th { background: #161622; color: var(--text-muted); font-weight: 700; }
+    .table-product-thumb { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; }
+    .table-actions { display: flex; gap: 8px; }
+    .action-icon-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .action-icon-btn:hover { background: var(--primary); color: #FFF; }
+    .action-icon-btn.delete:hover { background: var(--danger); color: #FFF; }
+    .upload-dropzone {
+      border: 2px dashed rgba(255, 255, 255, 0.25);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .upload-dropzone:hover { border-color: var(--secondary); background: rgba(255, 183, 3, 0.05); }
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+    .main-footer { background: #08080B; border-top: 1px solid var(--card-border); padding: 45px 0 24px; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 0.85rem; color: var(--text-dim); }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-title { font-size: 2.5rem; }
+      .location-grid { grid-template-columns: 1fr; }
+      .promo-banner { flex-direction: column; text-align: center; }
+      .payment-methods-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .cart-drawer { width: 100%; }
+      .floating-sticker { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Fast-Food Visual Stickers -->
+  <div class="floating-sticker sticker-1" aria-hidden="true">🍔</div>
+  <div class="floating-sticker sticker-2" aria-hidden="true">🍕</div>
+  <div class="floating-sticker sticker-3" aria-hidden="true">🍗</div>
+  <div class="floating-sticker sticker-4" aria-hidden="true">🍟</div>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-text">
+        <span class="top-bar-badge">Special Offer</span>
+        <span>🔥 <strong>FREE DELIVERY</strong> on all orders of <strong>Rs. 1,000 & above</strong> in Quetta!</span>
+      </div>
+      <div class="top-bar-contact">
+        <span>📞 (081) 282-5555</span>
+        <span>📍 Rahim Colony, Circular Rd near GOGO Pizza</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header with 3D Pop-up Website Brand Name -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar">
+        <!-- Interactive 3D Pop-up Brand Link -->
+        <a href="#home-section" class="brand-container" title="Quetta Crave Fast Food">
+          <div class="brand-logo-badge">
+            <i class="fa-solid fa-burger"></i>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-title-popup">QUETTA CRAVE</span>
+            <span class="brand-sub-badge">Gourmet Fast Food</span>
+          </div>
+
+          <!-- Hover / Focus Pop-up Card -->
+          <div class="brand-popup-card">
+            <h5><i class="fa-solid fa-fire" style="color:var(--primary);"></i> Rahim Colony's #1 Spot</h5>
+            <p>Sizzling smash beef burgers, crust pizzas & broast near GOGO Pizza, Quetta. Free delivery Rs. 1000+!</p>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#home-section" class="nav-link active">Home</a></li>
+          <li><a href="#menu-section" class="nav-link">Menu & Products</a></li>
+          <li><a href="#reviews-section" class="nav-link">5-Star Reviews</a></li>
+          <li><a href="#location-anchor" class="nav-link">Location & Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="cart-btn-trigger" onclick="Cart.openDrawer()" aria-label="View Shopping Cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge-count" style="display:none;">0</span>
+          </button>
+          <button class="admin-nav-btn" onclick="openAdminModal()" title="Management Portal">
+            <i class="fa-solid fa-lock"></i> Admin Portal
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-pill">
+            <i class="fa-solid fa-fire"></i> Rahim Colony's Top Crave Spot
+          </div>
+          <h1 class="hero-title">
+            Quetta's Most Sizzling <span class="highlight-popup">Gourmet Fast Food</span> Experience
+          </h1>
+          <p class="hero-desc">
+            Indulge in ultra-juicy smashed beef burgers, golden crunchy broast, overflowing cheesy stuffed crust pizzas, and authentic garlic chicken shawarmas freshly crafted near GOGO Pizza, Quetta.
+          </p>
+          <div class="hero-actions">
+            <a href="#menu-section" class="btn btn-primary"><i class="fa-solid fa-utensils"></i> Order Online Now</a>
+            <a href="#location-anchor" class="btn btn-outline"><i class="fa-solid fa-location-crosshairs"></i> Find Restaurant</a>
+          </div>
+          <div class="hero-features">
+            <div class="hero-feature-item">
+              <div class="hero-feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+              <div><strong>Free Delivery</strong><div style="font-size:0.78rem;color:var(--text-muted);">Orders Rs. 1000+</div></div>
+            </div>
+            <div class="hero-feature-item">
+              <div class="hero-feature-icon"><i class="fa-solid fa-certificate"></i></div>
+              <div><strong>100% Halal Prime</strong><div style="font-size:0.78rem;color:var(--text-muted);">Fresh Meat & Cheese</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image-box">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85" alt="Quetta Crave Gourmet Burger" class="hero-main-img">
+          <div class="hero-float-card">
+            <div class="hero-float-icon"><i class="fa-solid fa-star"></i></div>
+            <div>
+              <strong style="font-size:0.92rem;color:#FFF;">4.9 / 5.0 Rating</strong>
+              <div style="font-size:0.75rem;color:var(--text-muted);">Quetta Foodies Favorite</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Delivery Promotional Banner -->
+  <section class="promo-bar-section">
+    <div class="container">
+      <div class="promo-banner">
+        <div class="promo-left">
+          <div class="promo-icon-box"><i class="fa-solid fa-motorcycle"></i></div>
+          <div>
+            <h3 class="promo-title">Enjoy <span>FREE Delivery</span> on Orders Above Rs. 1,000!</h3>
+            <p class="promo-sub">Order your favorite smash burgers, pizzas, and crunchy broast with zero delivery charges in Quetta city limits.</p>
+          </div>
+        </div>
+        <a href="#menu-section" class="btn btn-secondary"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Catalog with Floating Product Cards -->
+  <section class="menu-section" id="menu-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Explore By Category</span>
+        <h2 class="section-title">Our Signature Fast Food Menu (25+ Dishes)</h2>
+        <p class="section-desc">Handcrafted smash burgers, artisan pizzas, crispy broast, shawarmas, and loaded fries.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="category-tabs-nav" id="category-tabs-container"></div>
+
+      <!-- Floating Animated Products Grid -->
+      <div class="products-grid" id="menu-products-grid"></div>
+    </div>
+  </section>
+
+  <!-- 5-Star Reviews Section -->
+  <section class="reviews-section" id="reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Customer Testimonials</span>
+        <h2 class="section-title">5-Star Reviews from Local Food Lovers</h2>
+      </div>
+
+      <div class="reviews-summary-bar">
+        <div class="reviews-rating-big">
+          <div class="rating-score" id="average-rating-score">4.9</div>
+          <div>
+            <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <span style="font-size:0.85rem;color:var(--text-muted);" id="total-reviews-count">Based on genuine 5-star customer reviews</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="document.getElementById('write-review-modal').classList.add('active')">
+          <i class="fa-solid fa-pen"></i> Leave a 5-Star Review
+        </button>
+      </div>
+
+      <div class="reviews-cards-grid" id="customer-reviews-grid"></div>
+    </div>
+  </section>
+
+  <!-- Location & Google Maps Section -->
+  <section class="location-section" id="location-anchor">
+    <div class="container">
+      <div class="location-grid">
+        <div class="location-info-card">
+          <div class="location-detail-item">
+            <div class="location-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div>
+              <h4 style="font-weight:700;">Exact Address</h4>
+              <p style="color:var(--text-muted);font-size:0.88rem;">Rahim Colony, Circular Road near GOGO Pizza, Quetta, Balochistan, Pakistan</p>
+            </div>
+          </div>
+          <div class="location-detail-item">
+            <div class="location-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <h4 style="font-weight:700;">Opening Hours</h4>
+              <p style="color:var(--text-muted);font-size:0.88rem;">Daily: <strong>12:00 PM – 02:00 AM (Midnight)</strong></p>
+            </div>
+          </div>
+          <div class="location-detail-item">
+            <div class="location-icon"><i class="fa-solid fa-phone-volume"></i></div>
+            <div>
+              <h4 style="font-weight:700;">Delivery Hotline</h4>
+              <p style="color:var(--text-muted);font-size:0.88rem;">(081) 282-5555 / +92 333 7895555</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-frame-wrapper">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13778.686524108846!2d66.9950!3d30.1850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ed2df8f1a7d65b7%3A0x7d0fa047b11d9bc9!2sRahim%20Colony%2C%20Quetta!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Quetta Crave Map">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>QUETTA CRAVE</strong>. Near GOGO Pizza, Rahim Colony, Quetta.</div>
+        <div>
+          <button onclick="openAdminModal()" style="background:transparent;color:var(--secondary);cursor:pointer;font-weight:700;font-size:0.85rem;">
+            <i class="fa-solid fa-lock"></i> Admin Portal
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Write Review Modal -->
+  <div class="modal-overlay" id="write-review-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="document.getElementById('write-review-modal').classList.remove('active')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="font-family:var(--font-heading);font-size:1.4rem;font-weight:800;margin-bottom:12px;">Write a 5-Star Customer Review</h3>
+      <form id="review-submission-form">
+        <div class="form-group">
+          <label class="form-label">Rating</label>
+          <div class="star-picker">
+            <i class="fa-solid fa-star active" data-rating="1"></i>
+            <i class="fa-solid fa-star active" data-rating="2"></i>
+            <i class="fa-solid fa-star active" data-rating="3"></i>
+            <i class="fa-solid fa-star active" data-rating="4"></i>
+            <i class="fa-solid fa-star active" data-rating="5"></i>
+          </div>
+        </div>
+        <div class="form-group"><label class="form-label">Your Name *</label><input type="text" name="customer_name" class="form-control" placeholder="Enter your name" required></div>
+        <div class="form-group"><label class="form-label">Email Address *</label><input type="email" name="customer_email" class="form-control" placeholder="Enter your email" required></div>
+        <div class="form-group"><label class="form-label">Favorite Dish</label><input type="text" name="favorite_dish" class="form-control" placeholder="e.g. Monster Smash Burger"></div>
+        <div class="form-group"><label class="form-label">Your Feedback *</label><textarea name="comment" class="form-control" placeholder="Share your experience at Quetta Crave..." required></textarea></div>
+        <button type="submit" class="btn btn-primary btn-block">Submit 5-Star Review</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Drawer & Overlay -->
+  <div class="modal-overlay cart-overlay" onclick="Cart.closeDrawer()"></div>
+  <aside class="cart-drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title"><i class="fa-solid fa-bag-shopping" style="color:var(--primary);"></i> Your Order Cart</div>
+      <button class="modal-close-btn cart-drawer-close" onclick="Cart.closeDrawer()" style="position:static;"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="delivery-progress-box">
+      <div class="delivery-progress-text"><span>Add items to unlock <span class="highlight">FREE Delivery</span></span></div>
+      <div class="progress-track"><div class="progress-fill"></div></div>
+    </div>
+    <div class="cart-items-list"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-line"><span>Food Subtotal</span><strong id="drawer-subtotal">Rs. 0</strong></div>
+      <div class="cart-summary-line"><span>Delivery Fee (Quetta)</span><strong id="drawer-delivery">Rs. 0</strong></div>
+      <div class="cart-summary-line total"><span>Total Amount</span><strong id="drawer-total" style="color:var(--secondary);">Rs. 0</strong></div>
+      <button class="btn btn-primary btn-block" onclick="openCheckoutModal()" style="margin-top:14px;">
+        <i class="fa-solid fa-cash-register"></i> Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Checkout Modal with Pakistani Payment Options -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-content" style="max-width:560px;">
+      <button class="modal-close-btn" onclick="document.getElementById('checkout-modal').classList.remove('active')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="font-family:var(--font-heading);font-size:1.35rem;font-weight:800;margin-bottom:12px;">Confirm Quetta Crave Order</h3>
+      
+      <div id="checkout-modal-summary" style="background:#101016; border:1px solid var(--card-border); border-radius:var(--radius-sm); padding:14px; margin-bottom:16px; font-size:0.85rem;"></div>
+
+      <form id="checkout-modal-form">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div class="form-group"><label class="form-label">Full Name *</label><input type="text" name="customer_name" class="form-control" placeholder="Your Name" required></div>
+          <div class="form-group"><label class="form-label">Phone / WhatsApp *</label><input type="tel" name="customer_phone" class="form-control" placeholder="0333-1234567" required></div>
+        </div>
+
+        <div class="form-group"><label class="form-label">Delivery Address in Quetta *</label><textarea name="delivery_address" class="form-control" placeholder="House / Street / Area near Rahim Colony..." required></textarea></div>
+
+        <!-- Pakistani Payment Method Selector -->
+        <div class="form-group">
+          <label class="form-label">Select Payment Method *</label>
+          <div class="payment-methods-grid">
+            
+            <label class="payment-option-card active" onclick="selectPaymentMethod('Cash on Delivery', this)">
+              <input type="radio" name="payment_option" value="Cash on Delivery" checked>
+              <div class="payment-option-icon" style="background:rgba(6, 214, 160, 0.15); color:var(--accent-green);">
+                <i class="fa-solid fa-money-bill-wave"></i>
+              </div>
+              <div>
+                <div class="payment-option-title">Cash on Delivery</div>
+                <div class="payment-option-sub">Pay cash at doorstep</div>
+              </div>
+            </label>
+
+            <label class="payment-option-card" onclick="selectPaymentMethod('EasyPaisa', this)">
+              <input type="radio" name="payment_option" value="EasyPaisa">
+              <div class="payment-option-icon" style="background:rgba(0, 200, 83, 0.15); color:#00C853;">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <div>
+                <div class="payment-option-title">EasyPaisa</div>
+                <div class="payment-option-sub">Direct wallet transfer</div>
+              </div>
+            </label>
+
+            <label class="payment-option-card" onclick="selectPaymentMethod('JazzCash', this)">
+              <input type="radio" name="payment_option" value="JazzCash">
+              <div class="payment-option-icon" style="background:rgba(255, 109, 0, 0.15); color:#FF6D00;">
+                <i class="fa-solid fa-wallet"></i>
+              </div>
+              <div>
+                <div class="payment-option-title">JazzCash</div>
+                <div class="payment-option-sub">Direct wallet transfer</div>
+              </div>
+            </label>
+
+            <label class="payment-option-card" onclick="selectPaymentMethod('Pakistani Bank Card / SadaPay / NayaPay', this)">
+              <input type="radio" name="payment_option" value="Pakistani Bank Card / SadaPay / NayaPay">
+              <div class="payment-option-icon" style="background:rgba(230, 57, 70, 0.15); color:var(--primary);">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <div>
+                <div class="payment-option-title">Bank Card / PayPak</div>
+                <div class="payment-option-sub">SadaPay, NayaPay, Visa</div>
+              </div>
+            </label>
+
+          </div>
+
+          <!-- Dynamic Instruction Box for Electronic Payments -->
+          <div id="payment-instruction-wrapper" style="display:none;">
+            <div class="payment-instruction-box" id="payment-instruction-text"></div>
+            <div class="form-group" style="margin-bottom:8px;">
+              <label class="form-label" style="font-size:0.8rem;">Transaction ID / Ref # (Optional for instant verification)</label>
+              <input type="text" name="transaction_ref" class="form-control" placeholder="e.g. 9847291034">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-circle-check"></i> Place Delivery Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Portal Modal (Clean Unprefilled Authentication & Full CRUD) -->
+  <div class="modal-overlay" id="admin-modal" style="z-index:2000;">
+    <div class="modal-content" style="max-width:880px; width:95%; padding:0; overflow:hidden;">
+      <div id="admin-modal-login-view" style="padding:40px; text-align:center;">
+        <button class="modal-close-btn" onclick="closeAdminModal()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="admin-login-logo"><i class="fa-solid fa-shield-halved"></i></div>
+        <h2 style="font-family:var(--font-heading);font-size:1.6rem;font-weight:800;margin-bottom:6px;">QUETTA CRAVE Admin</h2>
+        <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:22px;">Authorized Management Access Only</p>
+        
+        <form id="admin-modal-login-form" style="max-width:360px;margin:0 auto;">
+          <div class="form-group">
+            <label class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter username" autocomplete="off" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter password" autocomplete="off" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px;">Authenticate & Enter</button>
+        </form>
+      </div>
+
+      <div id="admin-modal-dashboard-view" style="display:none; height:82vh; flex-direction:column;">
+        <div style="background:#14141D; border-bottom:1px solid var(--card-border); padding:14px 22px; display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span class="brand-logo-badge" style="width:32px;height:32px;font-size:0.95rem;"><i class="fa-solid fa-burger"></i></span>
+            <strong style="font-family:var(--font-heading);font-size:1.05rem;">Admin Management Portal</strong>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <button class="btn btn-outline btn-sm" onclick="logoutAdmin()" style="font-size:0.78rem;color:var(--danger);">Sign Out</button>
+            <button class="modal-close-btn" onclick="closeAdminModal()" style="position:static;"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-grow:1; overflow:hidden;">
+          <div style="width:170px; background:#101018; border-right:1px solid var(--card-border); padding:14px 8px; display:flex; flex-direction:column; gap:6px;">
+            <button class="admin-menu-item active" onclick="switchAdminTab('products', this)"><i class="fa-solid fa-burger"></i> Products</button>
+            <button class="admin-menu-item" onclick="switchAdminTab('orders', this)"><i class="fa-solid fa-bag-shopping"></i> Orders</button>
+            <button class="admin-menu-item" onclick="switchAdminTab('reviews', this)"><i class="fa-solid fa-star"></i> Reviews</button>
+            <button class="admin-menu-item" onclick="switchAdminTab('upload', this)"><i class="fa-solid fa-cloud-arrow-up"></i> Upload</button>
+          </div>
+
+          <div style="flex-grow:1; overflow-y:auto; padding:20px; background:#0B0B10;">
+            <div class="admin-pane" id="pane-products">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <h4 style="font-weight:800;font-size:1.1rem;">Products Management (CRUD)</h4>
+                <button class="btn btn-primary btn-sm" onclick="openAddProductModal()"><i class="fa-solid fa-plus"></i> Add Product</button>
+              </div>
+              <table class="admin-table">
+                <thead><tr><th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Action</th></tr></thead>
+                <tbody id="admin-modal-products-tbody"></tbody>
+              </table>
+            </div>
+
+            <div class="admin-pane" id="pane-orders" style="display:none;">
+              <h4 style="font-weight:800;margin-bottom:14px;font-size:1.1rem;">Live Customer Orders</h4>
+              <table class="admin-table">
+                <thead><tr><th>Order #</th><th>Customer</th><th>Payment</th><th>Address</th><th>Total</th><th>Status</th></tr></thead>
+                <tbody id="admin-modal-orders-tbody"></tbody>
+              </table>
+            </div>
+
+            <div class="admin-pane" id="pane-reviews" style="display:none;">
+              <h4 style="font-weight:800;margin-bottom:14px;font-size:1.1rem;">5-Star Customer Reviews</h4>
+              <table class="admin-table">
+                <thead><tr><th>Customer</th><th>Rating</th><th>Comment</th><th>Action</th></tr></thead>
+                <tbody id="admin-modal-reviews-tbody"></tbody>
+              </table>
+            </div>
+
+            <div class="admin-pane" id="pane-upload" style="display:none; text-align:center;">
+              <h4 style="font-weight:800;margin-bottom:12px;font-size:1.1rem;">Upload Dish Photo</h4>
+              <div class="upload-dropzone" id="admin-modal-dropzone" onclick="document.getElementById('admin-modal-file-input').click()">
+                <i class="fa-solid fa-cloud-arrow-up fa-2x" style="color:var(--primary);margin-bottom:10px;"></i>
+                <p style="font-size:0.88rem;">Click to select an image from your device</p>
+                <input type="file" id="admin-modal-file-input" accept="image/*" style="display:none;">
+              </div>
+              <div id="admin-modal-upload-status" style="margin:12px 0;font-size:0.85rem;"></div>
+              <input type="text" id="admin-modal-url-box" class="form-control" readonly placeholder="Uploaded image URL will appear here">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product CRUD Editor Sub-Modal -->
+  <div class="modal-overlay" id="product-modal" style="z-index:3000;">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="document.getElementById('product-modal').classList.remove('active')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="product-modal-title" style="font-family:var(--font-heading);font-weight:800;margin-bottom:16px;">Product Editor</h3>
+      <form id="product-crud-form">
+        <input type="hidden" name="product_id">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group"><label class="form-label">Category</label><select name="category_id" id="product-form-category" class="form-control"></select></div>
+          <div class="form-group"><label class="form-label">Price (PKR)</label><input type="number" name="price" class="form-control" required></div>
+        </div>
+        <div class="form-group"><label class="form-label">Dish Name</label><input type="text" name="name" class="form-control" required></div>
+        <div class="form-group"><label class="form-label">Description</label><textarea name="description" class="form-control" required></textarea></div>
+        <div class="form-group"><label class="form-label">Image URL</label><input type="text" name="image_url" id="product-form-img-url" class="form-control" required></div>
+        <button type="submit" class="btn btn-primary btn-block">Save to Database</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       EMBEDDED JAVASCRIPT: DATA BINDING & LIVE LOGIC
+       ======================================================== -->
+  <script>
+    // Initial Dataset
+    const DEFAULT_CATEGORIES = [
+      { id: 1, name: 'Gourmet Smash Burgers', slug: 'burgers', icon: 'fa-burger' },
+      { id: 2, name: 'Artisan Cheesy Pizzas', slug: 'pizzas', icon: 'fa-pizza-slice' },
+      { id: 3, name: 'Crispy Fried Chicken & Broast', slug: 'crispy-chicken', icon: 'fa-drumstick-bite' },
+      { id: 4, name: 'Quetta Crave Shawarma & Wraps', slug: 'shawarma-wraps', icon: 'fa-bowl-rice' },
+      { id: 5, name: 'Loaded Fries, Shakes & Desserts', slug: 'sides-desserts', icon: 'fa-ice-cream' }
+    ];
+
+    const DEFAULT_PRODUCTS = [
+      // 1. Burgers
+      { id: 1, category_id: 1, name: 'Quetta Crave Monster Smash Burger', price: 750, description: 'Double prime beef smash patties, melted cheddar, caramelized sweet onions, secret house sauce, toasted brioche bun.', image_url: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600', badge: 'Chef Special', rating: 5.0, is_available: 1 },
+      { id: 2, category_id: 1, name: 'Zinger Fire Tower Burger', price: 650, description: 'Extra crispy spicy fried chicken breast fillet, melted pepper jack cheese, jalapenos, peri-peri drizzle, and iceberg lettuce.', image_url: 'https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=600', badge: 'Best Seller', rating: 4.9, is_available: 1 },
+      { id: 3, category_id: 1, name: 'Royal Truffle Mushroom Burger', price: 850, description: '100% Angus smash beef, sautéed garlic butter wild mushrooms, Swiss cheese, and signature truffle aioli.', image_url: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600', badge: 'Gourmet', rating: 4.8, is_available: 1 },
+      { id: 4, category_id: 1, name: 'Smoky BBQ Bacon Crunch Burger', price: 790, description: 'Smoked beef patty, crispy turkey bacon strips, golden battered onion rings, and tangy smoky BBQ glaze.', image_url: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=600', badge: 'Popular', rating: 4.9, is_available: 1 },
+      { id: 5, category_id: 1, name: 'Classic American Cheeseburger', price: 550, description: 'Juicy grilled beef patty, dual American cheddar slices, tangy pickles, and classic mustard-mayo on sesame bun.', image_url: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=600', badge: 'Value Pick', rating: 4.7, is_available: 1 },
+
+      // 2. Pizzas
+      { id: 6, category_id: 2, name: 'Quetta Crown Crust Special Pizza', price: 1450, description: 'Loaded crown crust stuffed with cheese & spicy kebab, tikka chicken chunks, bell peppers, black olives, ranch swirl.', image_url: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600', badge: 'Must Try', rating: 5.0, is_available: 1 },
+      { id: 7, category_id: 2, name: 'Peri Peri Firestorm Pizza', price: 1250, description: 'Spicy peri peri marinated grilled chicken, red onions, pickled jalapenos, mozzarella, and spicy peri mayo drizzle.', image_url: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600', badge: 'Spicy', rating: 4.9, is_available: 1 },
+      { id: 8, category_id: 2, name: 'Cheesy Lovers 4-Cheese Delight', price: 1150, description: 'Decadent blend of Mozzarella, sharp Cheddar, shaved Parmesan, and Gouda over slow-cooked herb tomato marinara.', image_url: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600', badge: 'Vegetarian', rating: 4.8, is_available: 1 },
+      { id: 9, category_id: 2, name: 'Creamy Malai Boti Pizza', price: 1350, description: 'Tender charcoal-smoked malai boti chicken chunks, button mushrooms, sweet corn, and creamy white garlic sauce.', image_url: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=600', badge: 'Best Seller', rating: 5.0, is_available: 1 },
+      { id: 10, category_id: 2, name: 'Pepperoni Passion Supreme Pizza', price: 1300, description: 'Generously layered artisan beef pepperoni, rich marinara sauce, double mozzarella, and oregano sprinkle.', image_url: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?w=600', badge: 'Classic', rating: 4.9, is_available: 1 },
+
+      // 3. Crispy Chicken
+      { id: 11, category_id: 3, name: 'Golden Crispy Broast 3-Piece Combo', price: 690, description: '3 pieces of signature crunchy fried chicken, seasoned fries, creamy garlic mayo dip, and fresh dinner roll.', image_url: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600', badge: 'Hot & Fresh', rating: 5.0, is_available: 1 },
+      { id: 12, category_id: 3, name: 'Buffalo Flaming Hot Wings (8 Pcs)', price: 550, description: '8 pcs crispy fried wings tossed in tangy flaming New York buffalo glaze, served with cool ranch dipping sauce.', image_url: 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=600', badge: 'Spicy', rating: 4.9, is_available: 1 },
+      { id: 13, category_id: 3, name: 'Crispy Chicken Tenders Basket', price: 520, description: '5 pcs golden crunchy tenderloins, honey mustard & garlic mayo dips, served with a basket of seasoned fries.', image_url: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=600', badge: 'Kids & Adults', rating: 4.8, is_available: 1 },
+      { id: 14, category_id: 3, name: 'Honey Garlic Glazed Crispy Chicken', price: 640, description: '4 pcs crunchy fried chicken cuts glazed in sweet honey garlic reduction and toasted sesame seeds.', image_url: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=600', badge: 'Trending', rating: 4.9, is_available: 1 },
+      { id: 15, category_id: 3, name: 'Crave Family Feast Chicken Bucket', price: 1890, description: '8 pcs crispy fried chicken, 2 large fries, 2 coleslaw bowls, 4 dinner rolls, 2 signature dips, and 1.5L soft drink.', image_url: 'https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?w=600', badge: 'Best Value', rating: 5.0, is_available: 1 },
+
+      // 4. Shawarma & Wraps
+      { id: 16, category_id: 4, name: 'Jumbo Arabic Garlic Chicken Shawarma', price: 380, description: 'Charcoal grilled sliced chicken, signature thick garlic toum, salted fries & crunchy pickled cucumbers in pita.', image_url: 'https://images.unsplash.com/photo-1561651823-34feb02250e4?w=600', badge: 'Top Rated', rating: 5.0, is_available: 1 },
+      { id: 17, category_id: 4, name: 'Spicy Zinger Tortilla Wrap', price: 450, description: 'Crispy chicken strip, shredded cabbage, spicy chipotle sauce, and melted cheddar wrapped in toasted tortilla.', image_url: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600', badge: 'Best Seller', rating: 4.9, is_available: 1 },
+      { id: 18, category_id: 4, name: 'Cheesy Charcoal Malai Shawarma', price: 420, description: 'Tender malai chicken cubes, melted mozzarella, garlic cream sauce, and mint mayo wrapped in soft Lebanese bread.', image_url: 'https://images.unsplash.com/photo-1603064752734-4c48eff53d05?w=600', badge: 'Chef Choice', rating: 4.8, is_available: 1 },
+      { id: 19, category_id: 4, name: 'Quetta Crave Loaded Shawarma Platter', price: 650, description: 'Deconstructed platter: grilled spiced chicken, fragrant yellow rice, garlic hummus, pickled veggies, and toasted pita triangles.', image_url: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=600', badge: 'Special Platter', rating: 5.0, is_available: 1 },
+      { id: 20, category_id: 4, name: 'Beef Seekh Kebab Paratha Roll', price: 350, description: 'Spiced charcoal grilled beef seekh kebab, mint-coriander chutney, and thinly sliced red onions in crispy paratha.', image_url: 'https://images.unsplash.com/photo-1628294895950-9805252327bc?w=600', badge: 'Traditional', rating: 4.8, is_available: 1 },
+
+      // 5. Loaded Fries & Desserts
+      { id: 21, category_id: 5, name: 'Loaded Animal Style Cheesy Fries', price: 490, description: 'Crisp skin-on fries drenched in hot liquid cheddar cheese, spiced minced chicken, sliced jalapenos, and Crave special sauce.', image_url: 'https://images.unsplash.com/photo-1585109649139-366815a0d713?w=600', badge: 'Must Try', rating: 5.0, is_available: 1 },
+      { id: 22, category_id: 5, name: 'Gourmet Lotus Biscoff Shake', price: 450, description: 'Thick creamy vanilla ice cream shake blended with authentic Lotus Biscoff spread, crushed biscuits, and caramel swirl.', image_url: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600', badge: 'Super Thick', rating: 5.0, is_available: 1 },
+      { id: 23, category_id: 5, name: 'Nutella Hazelnut Freakshake', price: 480, description: 'Rich chocolate hazelnut shake crowned with whipped cream, Nutella drizzle, and chocolate brownie crumble.', image_url: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600', badge: 'Choco Craze', rating: 4.9, is_available: 1 },
+      { id: 24, category_id: 5, name: 'Warm Molten Lava Cake with Ice Cream', price: 420, description: 'Warm dark chocolate cake with an oozing Belgian chocolate center served with premium vanilla ice cream scoop.', image_url: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600', badge: 'Dessert King', rating: 4.9, is_available: 1 },
+      { id: 25, category_id: 5, name: 'Crispy Golden Mozzarella Cheese Sticks', price: 390, description: '6 pcs stretchy mozzarella sticks encased in herb-seasoned golden breadcrumb crust, served with warm marinara dip.', image_url: 'https://images.unsplash.com/photo-1531749668029-2db88e4276c7?w=600', badge: 'Cheesy', rating: 4.8, is_available: 1 }
+    ];
+
+    const DEFAULT_REVIEWS = [
+      { id: 1, customer_name: 'Hamza Khan', rating: 5, comment: 'Hands down the best smash burger in Quetta! The beef was incredibly juicy and the toasted brioche bun had the perfect crunch. Rahim Colony now has the ultimate food spot!', favorite_dish: 'Quetta Crave Monster Smash Burger' },
+      { id: 2, customer_name: 'Dr. Ayesha Mengal', rating: 5, comment: 'Ordered the Quetta Crown Crust pizza and Loaded Animal Fries. The delivery was completely FREE because our order was Rs. 1940 and arrived piping hot within 25 minutes! 10/10.', favorite_dish: 'Quetta Crown Crust Special Pizza' },
+      { id: 3, customer_name: 'Tariq Baloch', rating: 5, comment: 'The Zinger Tower burger and Buffalo wings are sensational. Extremely clean ambiance near GOGO Pizza on Circular Road, and staff is super courteous.', favorite_dish: 'Zinger Fire Tower Burger' }
+    ];
+
+    // Local Storage Database Bridge
+    let categories = JSON.parse(localStorage.getItem('qc_categories')) || DEFAULT_CATEGORIES;
+    let products = JSON.parse(localStorage.getItem('qc_products')) || DEFAULT_PRODUCTS;
+    let reviews = JSON.parse(localStorage.getItem('qc_reviews')) || DEFAULT_REVIEWS;
+    let orders = JSON.parse(localStorage.getItem('qc_orders')) || [];
+    let activeCat = 'all';
+    let selectedPayment = 'Cash on Delivery';
+
+    function persist() {
+      localStorage.setItem('qc_categories', JSON.stringify(categories));
+      localStorage.setItem('qc_products', JSON.stringify(products));
+      localStorage.setItem('qc_reviews', JSON.stringify(reviews));
+      localStorage.setItem('qc_orders', JSON.stringify(orders));
+    }
+
+    // Shopping Cart Engine
+    const Cart = {
+      items: JSON.parse(localStorage.getItem('qc_cart')) || [],
+      save() {
+        localStorage.setItem('qc_cart', JSON.stringify(this.items));
+        this.updateUI();
+      },
+      addItem(p) {
+        const exist = this.items.find(i => i.id === p.id);
+        if (exist) exist.quantity++;
+        else this.items.push({ id: p.id, name: p.name, price: p.price, image_url: p.image_url, quantity: 1 });
+        this.save();
+        this.openDrawer();
+      },
+      updateQuantity(id, delta) {
+        const item = this.items.find(i => i.id === id);
+        if (!item) return;
+        item.quantity += delta;
+        if (item.quantity <= 0) this.items = this.items.filter(i => i.id !== id);
+        this.save();
+      },
+      getSubtotal() { return this.items.reduce((sum, i) => sum + (i.price * i.quantity), 0); },
+      getDeliveryFee() { const s = this.getSubtotal(); return s === 0 ? 0 : (s >= 1000 ? 0 : 150); },
+      getTotal() { return this.getSubtotal() + this.getDeliveryFee(); },
+      getItemCount() { return this.items.reduce((sum, i) => sum + i.quantity, 0); },
+      openDrawer() { document.querySelector('.cart-drawer').classList.add('open'); document.querySelector('.cart-overlay').classList.add('active'); },
+      closeDrawer() { document.querySelector('.cart-drawer').classList.remove('open'); document.querySelector('.cart-overlay').classList.remove('active'); },
+      updateUI() {
+        const count = this.getItemCount();
+        const subtotal = this.getSubtotal();
+        const fee = this.getDeliveryFee();
+        const total = this.getTotal();
+
+        document.querySelectorAll('.cart-badge-count').forEach(el => {
+          el.textContent = count;
+          el.style.display = count > 0 ? 'flex' : 'none';
+        });
+
+        const fill = document.querySelector('.progress-fill');
+        const txt = document.querySelector('.delivery-progress-text');
+        if (fill && txt) {
+          if (subtotal === 0) { fill.style.width = '0%'; txt.innerHTML = 'Add items for <span class="highlight">FREE Delivery</span>'; }
+          else if (subtotal >= 1000) { fill.style.width = '100%'; txt.innerHTML = '<strong style="color:var(--accent-green);">🎉 FREE DELIVERY UNLOCKED!</strong>'; }
+          else {
+            const pct = Math.min(100, Math.round((subtotal / 1000) * 100));
+            fill.style.width = pct + '%';
+            txt.innerHTML = `Add <span class="highlight">Rs. ${1000 - subtotal}</span> more for <strong>FREE Delivery</strong>`;
+          }
+        }
+
+        const list = document.querySelector('.cart-items-list');
+        if (list) {
+          if (this.items.length === 0) {
+            list.innerHTML = '<div style="text-align:center;padding:40px 10px;color:var(--text-muted);"><i class="fa-solid fa-basket-shopping fa-3x" style="color:var(--primary);margin-bottom:12px;opacity:0.4;"></i><p>Your crave cart is empty</p></div>';
+          } else {
+            list.innerHTML = this.items.map(i => `
+              <div class="cart-item-row">
+                <img src="${i.image_url}" class="cart-item-img">
+                <div class="cart-item-info">
+                  <strong>${i.name}</strong>
+                  <div style="color:var(--secondary);font-weight:700;">Rs. ${i.price}</div>
+                </div>
+                <div style="display:flex;gap:8px;align-items:center;">
+                  <button onclick="Cart.updateQuantity(${i.id}, -1)" style="background:#111;color:#fff;width:24px;height:24px;border-radius:4px;cursor:pointer;font-weight:700;">-</button>
+                  <span style="font-weight:700;">${i.quantity}</span>
+                  <button onclick="Cart.updateQuantity(${i.id}, 1)" style="background:#111;color:#fff;width:24px;height:24px;border-radius:4px;cursor:pointer;font-weight:700;">+</button>
+                </div>
+              </div>
+            `).join('');
+          }
+        }
+
+        const subEl = document.getElementById('drawer-subtotal');
+        const delEl = document.getElementById('drawer-delivery');
+        const totEl = document.getElementById('drawer-total');
+        if (subEl) subEl.textContent = `Rs. ${subtotal.toLocaleString()}`;
+        if (delEl) {
+          delEl.textContent = fee === 0 && subtotal > 0 ? 'FREE' : `Rs. ${fee}`;
+          delEl.style.color = fee === 0 && subtotal > 0 ? 'var(--accent-green)' : 'inherit';
+        }
+        if (totEl) totEl.textContent = `Rs. ${total.toLocaleString()}`;
+      }
+    };
+
+    // Render Menu & Categories with Floating Product Cards
+    function renderMenu() {
+      const tabs = document.getElementById('category-tabs-container');
+      const grid = document.getElementById('menu-products-grid');
+      if (!tabs || !grid) return;
+
+      tabs.innerHTML = `
+        <button class="category-tab-btn ${activeCat === 'all' ? 'active' : ''}" onclick="filterCat('all')">
+          <i class="fa-solid fa-fire"></i> All (${products.length})
+        </button>
+        ${categories.map(c => `
+          <button class="category-tab-btn ${activeCat === c.id ? 'active' : ''}" onclick="filterCat(${c.id})">
+            <i class="fa-solid ${c.icon}"></i> ${c.name}
+          </button>
+        `).join('')}
+      `;
+
+      let filtered = products;
+      if (activeCat !== 'all') filtered = filtered.filter(p => p.category_id === activeCat);
+
+      grid.innerHTML = filtered.map(p => {
+        const cat = categories.find(c => c.id === p.category_id);
+        return `
+          <div class="product-card">
+            <div class="product-img-box" onclick='Cart.addItem(${JSON.stringify(p).replace(/'/g, "&apos;")})'>
+              <img src="${p.image_url}" alt="${p.name}">
+              ${p.badge ? `<span class="product-badge-pop">${p.badge}</span>` : ''}
+              <div class="product-rating-pill"><i class="fa-solid fa-star"></i> ${p.rating || 5.0}</div>
+            </div>
+            <div class="product-info">
+              <span class="product-category-name">${cat ? cat.name : 'Fast Food'}</span>
+              <h3 class="product-title">${p.name}</h3>
+              <p class="product-desc">${p.description}</p>
+              <div class="product-footer">
+                <div class="product-price"><span>Rs.</span>${p.price}</div>
+                <button class="add-to-cart-btn" onclick='Cart.addItem(${JSON.stringify(p).replace(/'/g, "&apos;")})'>
+                  <i class="fa-solid fa-cart-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterCat(id) { activeCat = id; renderMenu(); }
+
+    // Render Reviews
+    function renderReviews() {
+      const container = document.getElementById('customer-reviews-grid');
+      if (!container) return;
+      container.innerHTML = reviews.map(r => `
+        <div class="review-card">
+          <div>
+            <div class="review-card-stars">${'⭐'.repeat(r.rating || 5)}</div>
+            <p class="review-comment">"${r.comment}"</p>
+          </div>
+          <div class="review-author-box">
+            <div class="review-avatar">${r.customer_name.slice(0, 2).toUpperCase()}</div>
+            <div>
+              <strong>${r.customer_name}</strong>
+              ${r.favorite_dish ? `<div style="font-size:0.75rem;color:var(--secondary);">Fav: ${r.favorite_dish}</div>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Pakistani Payment Option Selector Logic
+    function selectPaymentMethod(method, cardElement) {
+      selectedPayment = method;
+      document.querySelectorAll('.payment-option-card').forEach(c => c.classList.remove('active'));
+      cardElement.classList.add('active');
+      const radio = cardElement.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
+
+      const instructionWrapper = document.getElementById('payment-instruction-wrapper');
+      const instructionText = document.getElementById('payment-instruction-text');
+
+      if (method === 'EasyPaisa') {
+        instructionWrapper.style.display = 'block';
+        instructionText.innerHTML = `
+          <strong><i class="fa-solid fa-mobile-screen-button" style="color:#00C853;"></i> EasyPaisa Transfer:</strong><br>
+          Account Title: <strong>QUETTA CRAVE RESTAURANT</strong><br>
+          EasyPaisa Number: <strong>0333-7895555</strong> / Till ID: <strong>88291</strong><br>
+          <small style="color:var(--text-muted);">Please transfer the exact total amount and enter the Transaction ID below.</small>
+        `;
+      } else if (method === 'JazzCash') {
+        instructionWrapper.style.display = 'block';
+        instructionText.innerHTML = `
+          <strong><i class="fa-solid fa-wallet" style="color:#FF6D00;"></i> JazzCash Transfer:</strong><br>
+          Account Title: <strong>QUETTA CRAVE RESTAURANT</strong><br>
+          JazzCash Number: <strong>0300-7895555</strong> / Till ID: <strong>44102</strong><br>
+          <small style="color:var(--text-muted);">Please transfer the exact total amount and enter the Transaction ID below.</small>
+        `;
+      } else if (method === 'Pakistani Bank Card / SadaPay / NayaPay') {
+        instructionWrapper.style.display = 'block';
+        instructionText.innerHTML = `
+          <strong><i class="fa-solid fa-credit-card" style="color:var(--primary);"></i> Online Bank / SadaPay / NayaPay:</strong><br>
+          Bank: <strong>Meezan Bank Ltd (Quetta Circular Rd Branch)</strong><br>
+          Account Title: <strong>QUETTA CRAVE FOODS</strong><br>
+          IBAN: <strong>PK65MEZN0001092837465019</strong> &bull; SadaPay: <strong>03337895555</strong><br>
+          <small style="color:var(--text-muted);">Or pay via card swipe on rider machine upon arrival.</small>
+        `;
+      } else {
+        instructionWrapper.style.display = 'none';
+      }
+    }
+
+    // Modal & Checkout Handlers
+    function openCheckoutModal() {
+      Cart.closeDrawer();
+      if (Cart.items.length === 0) { alert('Your cart is empty! Please add some delicious dishes first.'); return; }
+      const sub = Cart.getSubtotal();
+      const fee = Cart.getDeliveryFee();
+      const tot = Cart.getTotal();
+      document.getElementById('checkout-modal-summary').innerHTML = `
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>Subtotal:</span><strong>Rs. ${sub.toLocaleString()}</strong></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>Delivery:</span><strong>${fee === 0 ? '<span style="color:var(--accent-green);">FREE (Rs. 1000+ promo)</span>' : 'Rs. ' + fee}</strong></div>
+        <div style="display:flex;justify-content:space-between;font-size:1.05rem;font-weight:800;color:var(--secondary);border-top:1px solid var(--card-border);padding-top:6px;margin-top:6px;"><span>Total Payable:</span><span>Rs. ${tot.toLocaleString()}</span></div>
+      `;
+      document.getElementById('checkout-modal').classList.add('active');
+    }
+
+    document.getElementById('checkout-modal-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.target;
+      const oNum = 'QC-' + Date.now().toString().slice(-6);
+      const paymentChoice = f.payment_option.value || selectedPayment;
+      const txRef = f.transaction_ref ? f.transaction_ref.value.trim() : '';
+
+      orders.push({
+        order_number: oNum,
+        customer_name: f.customer_name.value,
+        customer_phone: f.customer_phone.value,
+        delivery_address: f.delivery_address.value,
+        payment_method: paymentChoice,
+        transaction_ref: txRef,
+        total_amount: Cart.getTotal(),
+        status: 'Pending'
+      });
+      persist();
+      alert(`🎉 Order ${oNum} placed successfully!\nPayment: ${paymentChoice}${txRef ? ' (Ref: ' + txRef + ')' : ''}\nEstimated delivery: 25-35 minutes to your location in Quetta.`);
+      Cart.items = [];
+      Cart.save();
+      document.getElementById('checkout-modal').classList.remove('active');
+      f.reset();
+    });
+
+    // Review Submission Form
+    document.getElementById('review-submission-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.target;
+      reviews.unshift({
+        id: Date.now(),
+        customer_name: f.customer_name.value,
+        customer_email: f.customer_email.value,
+        favorite_dish: f.favorite_dish.value,
+        comment: f.comment.value,
+        rating: 5
+      });
+      persist();
+      renderReviews();
+      alert('🌟 Thank you for your 5-star review! Your feedback helps Quetta Crave grow.');
+      document.getElementById('write-review-modal').classList.remove('active');
+      f.reset();
+    });
+
+    // Admin Portal Handler (Unprefilled, Strict Authentication)
+    function openAdminModal() {
+      document.getElementById('admin-modal').classList.add('active');
+    }
+    function closeAdminModal() {
+      document.getElementById('admin-modal').classList.remove('active');
+    }
+    function logoutAdmin() {
+      document.getElementById('admin-modal-login-view').style.display = 'block';
+      document.getElementById('admin-modal-dashboard-view').style.display = 'none';
+      const loginForm = document.getElementById('admin-modal-login-form');
+      if (loginForm) loginForm.reset();
+    }
+
+    document.getElementById('admin-modal-login-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const u = e.target.username.value.trim();
+      const p = e.target.password.value;
+      if (u === 'CRAVELODGE' && p === 'foodfanatic007') {
+        document.getElementById('admin-modal-login-view').style.display = 'none';
+        document.getElementById('admin-modal-dashboard-view').style.display = 'flex';
+        renderAdminTables();
+      } else {
+        alert('❌ ACCESS DENIED: Invalid administrative credentials.');
+      }
+    });
+
+    function switchAdminTab(t, b) {
+      document.querySelectorAll('#admin-modal-dashboard-view .admin-menu-item').forEach(i => i.classList.remove('active'));
+      b.classList.add('active');
+      document.querySelectorAll('#admin-modal-dashboard-view .admin-pane').forEach(p => p.style.display = 'none');
+      document.getElementById('pane-' + t).style.display = 'block';
+    }
+
+    function renderAdminTables() {
+      const pTbody = document.getElementById('admin-modal-products-tbody');
+      if (pTbody) {
+        pTbody.innerHTML = products.map(p => `
+          <tr>
+            <td><img src="${p.image_url}" class="table-product-thumb"></td>
+            <td><strong>${p.name}</strong></td>
+            <td>${(categories.find(c => c.id === p.category_id) || {}).name || '-'}</td>
+            <td>Rs. ${p.price}</td>
+            <td>${p.is_available ? '<span style="color:var(--accent-green);font-weight:700;">In Stock</span>' : 'Out'}</td>
+            <td>
+              <div class="table-actions">
+                <button class="action-icon-btn" onclick="editProduct(${p.id})"><i class="fa-solid fa-pen"></i></button>
+                <button class="action-icon-btn delete" onclick="deleteProduct(${p.id})"><i class="fa-solid fa-trash"></i></button>
+              </div>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      const oTbody = document.getElementById('admin-modal-orders-tbody');
+      if (oTbody) {
+        oTbody.innerHTML = orders.length === 0 ? '<tr><td colspan="6" style="text-align:center;color:var(--text-muted);">No live orders yet</td></tr>' : orders.map(o => `
+          <tr>
+            <td><strong>${o.order_number}</strong></td>
+            <td>${o.customer_name}<br><small style="color:var(--text-muted);">${o.customer_phone}</small></td>
+            <td><span style="font-size:0.75rem;background:rgba(255,183,3,0.15);color:var(--secondary);padding:2px 6px;border-radius:4px;">${o.payment_method || 'COD'}</span>${o.transaction_ref ? `<br><small style="font-size:0.7rem;color:var(--text-muted);">Ref: ${o.transaction_ref}</small>` : ''}</td>
+            <td>${o.delivery_address}</td>
+            <td><strong>Rs. ${o.total_amount}</strong></td>
+            <td><span style="color:var(--secondary);font-weight:700;">${o.status}</span></td>
+          </tr>
+        `).join('');
+      }
+
+      const rTbody = document.getElementById('admin-modal-reviews-tbody');
+      if (rTbody) {
+        rTbody.innerHTML = reviews.map(r => `
+          <tr>
+            <td><strong>${r.customer_name}</strong></td>
+            <td>⭐ ${r.rating}</td>
+            <td><small>"${r.comment}"</small></td>
+            <td><button class="action-icon-btn delete" onclick="deleteReview(${r.id})"><i class="fa-solid fa-trash"></i></button></td>
+          </tr>
+        `).join('');
+      }
+
+      // Populate Categories select
+      const catSelect = document.getElementById('product-form-category');
+      if (catSelect) {
+        catSelect.innerHTML = categories.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+      }
+    }
+
+    function openAddProductModal() {
+      const f = document.getElementById('product-crud-form');
+      f.reset();
+      f.product_id.value = '';
+      document.getElementById('product-modal-title').textContent = 'Add New Fast Food Product';
+      document.getElementById('product-modal').classList.add('active');
+    }
+
+    function editProduct(id) {
+      const p = products.find(i => i.id === id);
+      if (!p) return;
+      const f = document.getElementById('product-crud-form');
+      f.product_id.value = p.id;
+      f.category_id.value = p.category_id;
+      f.name.value = p.name;
+      f.price.value = p.price;
+      f.description.value = p.description;
+      f.image_url.value = p.image_url;
+      document.getElementById('product-modal-title').textContent = 'Edit Dish: ' + p.name;
+      document.getElementById('product-modal').classList.add('active');
+    }
+
+    document.getElementById('product-crud-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.target;
+      const id = f.product_id.value;
+      const pData = {
+        category_id: parseInt(f.category_id.value),
+        name: f.name.value,
+        price: parseFloat(f.price.value),
+        description: f.description.value,
+        image_url: f.image_url.value,
+        rating: 5.0,
+        is_available: 1
+      };
+
+      if (id) {
+        const idx = products.findIndex(p => p.id == id);
+        if (idx !== -1) products[idx] = { ...products[idx], ...pData };
+      } else {
+        products.unshift({ id: Date.now(), ...pData });
+      }
+      persist();
+      renderMenu();
+      renderAdminTables();
+      document.getElementById('product-modal').classList.remove('active');
+      alert('Product updated in database successfully!');
+    });
+
+    function deleteProduct(id) {
+      if (confirm('Are you sure you want to delete this product from Quetta Crave?')) {
+        products = products.filter(p => p.id !== id);
+        persist();
+        renderMenu();
+        renderAdminTables();
+      }
+    }
+
+    function deleteReview(id) {
+      if (confirm('Delete customer review?')) {
+        reviews = reviews.filter(r => r.id !== id);
+        persist();
+        renderReviews();
+        renderAdminTables();
+      }
+    }
+
+    // Image file drag and upload simulation
+    const fileInput = document.getElementById('admin-modal-file-input');
+    if (fileInput) {
+      fileInput.onchange = (e) => {
+        if (e.target.files.length) {
+          const file = e.target.files[0];
+          const reader = new FileReader();
+          reader.onload = (re) => {
+            const url = re.target.result;
+            document.getElementById('admin-modal-upload-status').innerHTML = '<span style="color:var(--accent-green);font-weight:700;">✅ Upload Ready!</span>';
+            document.getElementById('admin-modal-url-box').value = url;
+            const pUrl = document.getElementById('product-form-img-url');
+            if (pUrl && document.getElementById('product-modal').classList.contains('active')) {
+              pUrl.value = url;
+            }
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+    }
+
+    // Initial Bootstrap
+    document.addEventListener('DOMContentLoaded', () => {
+      renderMenu();
+      renderReviews();
+      Cart.updateUI();
+    });
+  </script>
+</body>
+</html>
